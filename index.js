@@ -14,12 +14,12 @@ const PORT = process.env.PORT || 5000;
 app.use(cors()); // allows frontend to talk to this server
 app.use(express.json()); // parses incoming JSON
 
-const Message = mongoose.model('Message', {
+/*const Message = mongoose.model('Message', {
   name: String,
   email: String,
   message: String,
   date: { type: Date, default: Date.now }
-});
+}); */
 
 // Route to handle contact form submission
 app.post('/api/contact', async (req, res) => {
@@ -27,7 +27,7 @@ app.post('/api/contact', async (req, res) => {
 
   try {
 
-    await new Message({ name, email, message }).save();
+   /* await new Message({ name, email, message }).save();*/
     // create transporter
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -44,7 +44,7 @@ app.post('/api/contact', async (req, res) => {
     await transporter.sendMail({
       from: email,
       to: process.env.TO_EMAIL,             // where you want to receive messages
-      subject: `New Contact From ${name}`,
+      subject: `New Contact From ${name} (email: ${email})`,
       text: message,
     });
 
@@ -55,9 +55,9 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-mongoose.connect(process.env.MONGO_URI)
+/*mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('✅ Connected to MongoDB'))
-  .catch(err => console.error('❌ MongoDB connection error:', err));
+  .catch(err => console.error('❌ MongoDB connection error:', err)); */
 
 
 // Start the server
