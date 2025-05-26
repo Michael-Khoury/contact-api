@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: ['https://michael-khoury.github.io/#/contact', 'http://localhost:3000'],
+  origin: ['https://michael-khoury.github.io', 'http://localhost:3000'],
   methods: ['POST'],
 })); // allows frontend to talk to this server
 app.use(express.json()); // parses incoming JSON
