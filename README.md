@@ -22,6 +22,7 @@ The API handles `POST` requests from the frontend and sends emails via **Nodemai
 - **Node.js**
 - **Express.js**
 - **Nodemailer**
+- **REST API**
 - **dotenv**
 - **CORS**
 - **MongoDB** (optional)
