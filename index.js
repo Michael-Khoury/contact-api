@@ -11,7 +11,10 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors()); // allows frontend to talk to this server
+app.use(cors({
+  origin: ['https://michael-khoury.github.io/#/contact', 'http://localhost:3000'],
+  methods: ['POST'],
+})); // allows frontend to talk to this server
 app.use(express.json()); // parses incoming JSON
 
 /*const Message = mongoose.model('Message', {
